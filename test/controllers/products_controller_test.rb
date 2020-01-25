@@ -6,7 +6,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     @update = {
       title:       'Lorem Ipsum',
       description: 'Wibbles are fun!',
-      image_url:   'lorem.jpg',
+      image_url:   'iphone.jpg',
       price:       19.95
     }
   end
@@ -14,6 +14,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get products_url
     assert_response :success
+    assert_select 'tr', minimum: 3
+    assert_select 'h1', "Listing products"
   end
 
   test "should get new" do

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'store/index'
   resources :products
   get 'say/hello'
   get 'say/goodbye'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+  # You can have the root of your site routed with "root"
+  root 'store#index'
 end
