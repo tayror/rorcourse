@@ -1,3 +1,5 @@
+require 'concerns/current_cart.rb'
+
 class LineItemsController < ApplicationController
   include CurrentCart 
   before_action :set_cart, only: [:create] 
@@ -28,7 +30,9 @@ class LineItemsController < ApplicationController
   def create
 
     product = Product.find(params[:product_id]) 
-    @line_item = @cart.line_items.build(product: product) 
+    @line_item = @cart.add_product(product.id)
+
+    #@line_item = @cart.line_items.build(product: product) #have deleted after smart cart
     # @line_item = LineItem.new(line_item_params) #have deleted after added Cart
 
     respond_to do |format|
