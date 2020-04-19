@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pragprog Books Online Store</title>
+    <title>Books Store Online</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
   <body class="<%= controller.controller_name %>">
     <div id="banner">
-      <%= @page_title || "Pragmatic Bookshelf" %>
+      <%= @page_title || "Books Store Online" %>
     </div>
       <div id="columns">
         <div id="side"> 
           <div id="cart">
-            <%= render @cart %>
+            <% unless @cart == nil %>
+              <%= render @cart %>
+            <% end %>
+
           </div>
           <ul>
             <li><%= link_to 'Home', root_path %></li>

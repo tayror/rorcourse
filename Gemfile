@@ -1,3 +1,9 @@
+# Run against the latest stable release
+group :development, :test do
+  gem 'rspec-rails', '~> 4.0.0'
+end
+
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
